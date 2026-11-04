@@ -486,14 +486,6 @@ else:
         st.write("Issues found:")
         st.write(clean_issues_report) 
 
-    # fesibility check display
-
-    # st.write('Check for feasibility (in the future should run automatically with data cleaning and the whole section called - Trouble shooting or anything similar)')
-
-    # bbb = st.button('Run the feasibility check', help='Before you optimize your files and see the schedule, please, use this button to check the files.')
-
-    # with st.expander('Push to see feasibility report'):
-    #     feas_or_not, not_feas_activity, not_feas_time, not_feas_loc = feasibility_check(clean_bus)
 
     ########
 
@@ -862,19 +854,26 @@ else:
 
     st.write('If you are satisfied with the result of optimization you can see below (short version). Feel free to download your new schedule using the button below.')
 
-    st.write(simple_planning.head())
+    st.write(simple_planning)
 
-    download_button = st.button('Download new schedule', use_container_width= True, help='Push this button to download an excel document with new planning onto your device.')
+    # download_button = st.button('Download new schedule', use_container_width= True, help='Push this button to download an excel document with new planning onto your device.')
 
-    def download_this():
-        temp = simple_planning.copy()
-        temp = temp.to_excel('Optimized_Planning.xlsx')
-        return temp
+    # def download_this():
+    #     temp = simple_planning.copy()
+    #     temp = temp.to_excel('Optimized_Planning.xlsx')
+    #     return temp
 
-    if download_button:
-        kpi_opener = 1
-        temp = download_this()
-        st.toast('New Optimized_Planning.xlsx is downloaded!')
+    # if download_button:
+    #     kpi_opener = 1
+    #     temp = download_this()
+    #     st.toast('New Optimized_Planning.xlsx is downloaded!')
+
+    document1 = simple_planning.copy()
+    document1 = document1.to_excel('Optimized_Planning.xlsx')
+
+    bio = io.BytesIO()
+    document1.save(bio)
+    user_manual = st.sidebar.download_button('new schedule', data=bio.getvalue(), file_name= 'newschedule.xlsx',use_container_width= True, help='Push this button to download user manual.')
 
 
 # '''
