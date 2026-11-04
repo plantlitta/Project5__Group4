@@ -868,12 +868,12 @@ else:
     #     temp = download_this()
     #     st.toast('New Optimized_Planning.xlsx is downloaded!')
 
-    document1 = simple_planning.copy()
-    document1 = document1.to_excel('Optimized_Planning.xlsx')
+    # document1 = simple_planning.copy()
+    # document1 = document1.to_excel('Optimized_Planning.xlsx')
 
     # bio = io.BytesIO()
     # document1.save(bio)
-    user_manual = st.sidebar.download_button('new schedule', data=document1, file_name= 'newschedule.xlsx',use_container_width= True, help='Push this button to download user manual.')
+    user_manual = st.sidebar.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
 
 
 # '''
