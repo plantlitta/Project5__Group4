@@ -855,7 +855,7 @@ else:
     st.write('If you are satisfied with the result of optimization you can see below (short version). Feel free to download your new schedule using the button below.')
 
     st.write(simple_planning)
-
+    #og thing that worked
     # download_button = st.button('Download new schedule', use_container_width= True, help='Push this button to download an excel document with new planning onto your device.')
 
     # def download_this():
@@ -868,6 +868,7 @@ else:
     #     temp = download_this()
     #     st.toast('New Optimized_Planning.xlsx is downloaded!')
 
+# second attempt
     # document1 = simple_planning.copy()
     # document1 = simple_planning.to_excel('Optimized_Planning.xlsx')
 
@@ -876,7 +877,8 @@ else:
     # # new_schedule_button = st.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
 
     # output = io.BytesIO()
-
+    
+    # third and fourth attempt
     # # Write files to in-memory strings using BytesIO
     # # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
     # workbook = xlsxwriter.Workbook(document1.save(output), {'in_memory': True})
