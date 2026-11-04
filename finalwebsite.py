@@ -880,9 +880,9 @@ else:
     # Write files to in-memory strings using BytesIO
     # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
     workbook = xlsxwriter.Workbook(simple_planning.to_excel('Optimized_Planning.xlsx'), {'in_memory': True})
-    worksheet = workbook.add_worksheet()
+    worksheet = workbook.add_worksheet('first')
     # worksheet.write('A1', 'Hello')
-    workbook.close()
+    # workbook.close()
 
     st.download_button(
         label="Download Excel workbook",
