@@ -2,5 +2,5 @@ pillow
 streamlit
 pandas
 matplotlib
-docx
+python-docx
 xlsxwriter
