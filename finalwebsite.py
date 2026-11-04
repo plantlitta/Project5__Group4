@@ -869,7 +869,7 @@ else:
     #     st.toast('New Optimized_Planning.xlsx is downloaded!')
 
     # document1 = simple_planning.copy()
-    # document1 = document1.to_excel('Optimized_Planning.xlsx')
+    document1 = simple_planning.to_excel('Optimized_Planning.xlsx')
 
     # bio = io.BytesIO()
     # document1.save(bio)
@@ -879,7 +879,7 @@ else:
 
     # Write files to in-memory strings using BytesIO
     # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
-    workbook = xlsxwriter.Workbook(simple_planning.to_excel('Optimized_Planning.xlsx').save(output), {'in_memory': True})
+    workbook = xlsxwriter.Workbook(document1.save(output), {'in_memory': True})
     worksheet = workbook.add_worksheet('first')
     # worksheet.write('A1', 'Hello')
     # workbook.close()
