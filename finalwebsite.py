@@ -877,7 +877,7 @@ else:
     # # new_schedule_button = st.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
 
     # output = io.BytesIO()
-    
+
     # third and fourth attempt
     # # Write files to in-memory strings using BytesIO
     # # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
@@ -891,6 +891,7 @@ else:
     simple_planning.to_excel(writer)
     # writer.save()
     # output.seek(0)
+    writer.close()
     workbook = output.read()
 
     st.download_button(
