@@ -1,0 +1,16 @@
+[theme]
+backgroundColor = '#F6F3EF'
+base = 'light'
+primaryColor = '#2E1943'
+textColor = '#447D8D'
+secondaryBackgroundColor  = '#94c0cc'
+font = 'serif' 
+headerBackgroundColor = '#1F2729'
+greenColor = '#447D8D'
+
+
+[theme.sidebar]
+base = 'light'
+backgroundColor = '#C0B57F'
+textColor = '#302C18'
+greenColor = '#302C18'
