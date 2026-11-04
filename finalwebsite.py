@@ -889,16 +889,20 @@ else:
     output = io.BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
     simple_planning.to_excel(writer)
-    # writer.save()
-    # output.seek(0)
     writer.close()
     workbook = output.read()
 
     st.download_button(
-        label="Download Excel workbook",
+        label="Download new schedule",
         data=output.getvalue(),
-        file_name="Optimized_Planning.xlsx" #mime="application/vnd.ms-excel"
+        file_name="Optimized_Planning.xlsx",
+        use_container_width= True,
+        help='Push this button to download user manual.' 
     )
+    # if download_button:
+    #     kpi_opener = 1
+    #     temp = download_this()
+    #     st.toast('New Optimized_Planning.xlsx is downloaded!')
 # '''
 # SIDEBAR
 # '''
