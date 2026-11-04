@@ -871,9 +871,9 @@ else:
     document1 = simple_planning.copy()
     document1 = document1.to_excel('Optimized_Planning.xlsx')
 
-    bio = io.BytesIO()
-    document1.save(bio)
-    user_manual = st.sidebar.download_button('new schedule', data=bio.getvalue(), file_name= 'newschedule.xlsx',use_container_width= True, help='Push this button to download user manual.')
+    # bio = io.BytesIO()
+    # document1.save(bio)
+    user_manual = st.sidebar.download_button('new schedule', data=document1, file_name= 'newschedule.xlsx',use_container_width= True, help='Push this button to download user manual.')
 
 
 # '''
