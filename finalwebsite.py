@@ -873,9 +873,24 @@ else:
 
     # bio = io.BytesIO()
     # document1.save(bio)
-    user_manual = st.sidebar.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
+    # new_schedule_button = st.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
 
+    output = io.BytesIO()
 
+    # Write files to in-memory strings using BytesIO
+    # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
+    workbook = xlsxwriter.Workbook(simple_planning, {'in_memory': True})
+    worksheet = workbook.add_worksheet()
+
+    # worksheet.write('A1', 'Hello')
+    # workbook.close()
+
+    st.download_button(
+        label="Download Excel workbook",
+        data=output.getvalue(),
+        file_name="workbook.xlsx",
+        mime="application/vnd.ms-excel"
+    )
 # '''
 # SIDEBAR
 # '''
