@@ -894,8 +894,7 @@ else:
     st.download_button(
         label="Download Excel workbook",
         data=output.getvalue(),
-        file_name="Optimized_Planning.xlsx",
-        mime="application/vnd.ms-excel"
+        file_name="Optimized_Planning.xlsx" #mime="application/vnd.ms-excel"
     )
 # '''
 # SIDEBAR
