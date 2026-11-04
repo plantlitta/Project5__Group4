@@ -869,20 +869,27 @@ else:
     #     st.toast('New Optimized_Planning.xlsx is downloaded!')
 
     # document1 = simple_planning.copy()
-    document1 = simple_planning.to_excel('Optimized_Planning.xlsx')
+    # document1 = simple_planning.to_excel('Optimized_Planning.xlsx')
 
-    # bio = io.BytesIO()
-    # document1.save(bio)
-    # new_schedule_button = st.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
+    # # bio = io.BytesIO()
+    # # document1.save(bio)
+    # # new_schedule_button = st.download_button('new schedule', data=simple_planning.to_excel('Optimized_Planning.xlsx'), file_name= 'newschedule.xlsx',mime = 'application/vnd.ms-excel', use_container_width= True, help='Push this button to download user manual.')
+
+    # output = io.BytesIO()
+
+    # # Write files to in-memory strings using BytesIO
+    # # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
+    # workbook = xlsxwriter.Workbook(document1.save(output), {'in_memory': True})
+    # worksheet = workbook.add_worksheet('first')
+    # # worksheet.write('A1', 'Hello')
+    # # workbook.close()
 
     output = io.BytesIO()
-
-    # Write files to in-memory strings using BytesIO
-    # See: https://xlsxwriter.readthedocs.io/workbook.html?highlight=BytesIO#constructor
-    workbook = xlsxwriter.Workbook(document1.save(output), {'in_memory': True})
-    worksheet = workbook.add_worksheet('first')
-    # worksheet.write('A1', 'Hello')
-    # workbook.close()
+    writer = pd.ExcelWriter(output, engine='xlsxwriter')
+    simple_planning.to_excel(writer)
+    writer.save()
+    output.seek(0)
+    workbook = output.read()
 
     st.download_button(
         label="Download Excel workbook",
