@@ -892,17 +892,16 @@ else:
     writer.close()
     workbook = output.read()
 
-    st.download_button(
+    download_button = st.download_button(
         label="Download new schedule",
         data=output.getvalue(),
         file_name="Optimized_Planning.xlsx",
         use_container_width= True,
         help='Push this button to download user manual.' 
     )
-    # if download_button:
-    #     kpi_opener = 1
-    #     temp = download_this()
-    #     st.toast('New Optimized_Planning.xlsx is downloaded!')
+    if download_button:
+        kpi_opener = 1
+        st.toast('New Optimized_Planning.xlsx is downloaded!')
 # '''
 # SIDEBAR
 # '''
