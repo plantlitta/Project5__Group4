@@ -9,7 +9,7 @@ import contextlib
 import io
 from matplotlib.patches import Patch
 from matplotlib.ticker import FuncFormatter, MultipleLocator
-from docx import Document
+import docx
 import xlsxwriter
 
 # '''
@@ -883,7 +883,7 @@ else:
 
 st.sidebar.write('Instruction on how to use this schedule optimazer can be downloaded using button below.')
 
-document = Document('User manual template 2.docx')
+document = docx.Document('User manual template 2.docx')
 
 bio = io.BytesIO()
 document.save(bio)
