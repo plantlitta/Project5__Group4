@@ -1,10 +1,6 @@
+pillow
+streamlit
 pandas
-math
-random
 matplotlib
-datetime
-collections
-contextlib
-io
 docx
 xlsxwriter
