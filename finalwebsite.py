@@ -887,8 +887,8 @@ else:
     output = io.BytesIO()
     writer = pd.ExcelWriter(output, engine='xlsxwriter')
     simple_planning.to_excel(writer)
-    writer.save()
-    output.seek(0)
+    # writer.save()
+    # output.seek(0)
     workbook = output.read()
 
     st.download_button(
